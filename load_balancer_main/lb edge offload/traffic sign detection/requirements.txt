@@ -1,0 +1,9 @@
+setuptools
+Flask[async]
+numpy
+opencv-python-headless
+yolov5
+torch
+torchvision
+asyncio
+pycuda

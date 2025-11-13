@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 5000            # Expose frontend service on port 80 externally
+      targetPort: 5000     # Map to frontend container's port 5010
+      nodePort: 30050     # Assign a NodePort (e.g., 30007)
+  selector:
+    app: frontend-app

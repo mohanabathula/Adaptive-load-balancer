@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: object-detection-mps
+spec:
+  selector:
+    matchLabels:
+      app: object-detection-mps
+  template:
+    metadata:
+      labels:
+        app: object-detection-mps
+    spec:
+      nodeName: "tie-a40-4"
+      containers:
+        - name: object-detection-mps
+          image: mohanabathula/object_detect_service:mps
+          ports:
+            - containerPort: 5010
+          imagePullPolicy: Always
+          resources:
+            limits:
+              nvidia.com/gpu: 1

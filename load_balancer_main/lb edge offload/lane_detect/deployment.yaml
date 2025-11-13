@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lane-detect-server
+  labels:
+    name: lane-detect-server
+    # flag: lane-detect-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lane-detect-app
+  template:
+    metadata:
+      labels:
+        app: lane-detect-app
+    spec:
+      containers:
+      - name: lane-detect-container
+        image: mohanabathula/lane_detect_service:v1  # Use your Docker Hub image
+        ports:
+        - containerPort: 5005 # Port exposed in the container
+        imagePullPolicy: Always

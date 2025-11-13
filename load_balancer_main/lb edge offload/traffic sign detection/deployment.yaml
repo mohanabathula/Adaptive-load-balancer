@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: object-detection-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: object-detection-server
+  template:
+    metadata:
+      labels:
+        app: object-detection-server
+    spec:
+      nodeName: tie-a40-4
+      containers:
+        - name: object-detection-server
+          image: amtulsadiya/traffic-node-final5:latest
+          ports:
+            - containerPort: 5003
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+
