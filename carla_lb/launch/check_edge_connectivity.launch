@@ -1,0 +1,18 @@
+<launch>
+    <!-- Edge Forwarder Node -->
+    <node pkg="carla_lb" type="2_edge_obj_det.py" name="edge_forwarder" output="screen">
+        
+        <!-- Edge server URL -->
+        <param name="server_url" value="http://192.168.20.16:30052/processimage" />
+        
+        <!-- ROS image topic to forward -->
+        <param name="image_topic" value="/carla/ego_vehicle/rgb_front/image" />
+        
+        <!-- Frame resolution for sending to edge -->
+        <param name="frame_width" value="640" />
+        <param name="frame_height" value="480" />
+        
+        <!-- Timeout in seconds for edge server request -->
+        <param name="edge_timeout" value="1.0" />
+    </node>
+</launch>
