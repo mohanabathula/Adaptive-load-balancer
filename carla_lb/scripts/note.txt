@@ -1,0 +1,52 @@
+
+# CARLA Simulation & ROS LB Workflow
+
+## 1. Common for all (Local, Offload, ALB)
+
+```bash
+# Launch CARLA simulator
+cd /main/carla-0.9.13
+make launch
+
+# Launch CARLA ROS bridge with example ego vehicle
+roslaunch carla_ros_bridge carla_ros_bridge_with_example_ego_vehicle.launch
+
+# Spawn two stationary vehicles
+rosrun carla_lb spwan_traffic.py
+```
+# Controll linux traffic control (TC)
+
+```bash
+sudo tc qdisc add dev enp25s0f0 root tbf rate 100mbit burst 32kbit latency 400ms
+sudo tc qdisc del dev enp25s0f0 root
+```
+------------------------------------------------------------------
+
+# 2. Local Only
+
+```bash
+# Run collision detection locally
+rosrun carla_lb local_v1.py
+
+# Detect traffic lights
+rosrun carla_lb 6_detect_traffic_lights.py
+```
+----------------------------------------------------------------------
+
+## 3. Offloading Only
+
+```bash
+# Check connectivity with edge server
+roslaunch carla_lb check_edge_connectivity.launch
+```
+
+---------------------------------------------------------------------
+
+## 4. ALB (Adaptive Load Balancer)
+
+# Move the ego vehicle via edge controller
+rosrun carla_lb alb_v1.py
+```
+
+-----------------------------------------------------------------------------
+
