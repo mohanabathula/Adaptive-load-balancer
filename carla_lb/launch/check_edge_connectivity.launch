@@ -1,6 +1,6 @@
 <launch>
     <!-- Edge Forwarder Node -->
-    <node pkg="carla_lb" type="2_edge_obj_det.py" name="edge_forwarder" output="screen">
+    <node pkg="carla_lb" type="offload_v1.py" name="edge_forwarder" output="screen">
         
         <!-- Edge server URL -->
         <param name="server_url" value="http://192.168.20.16:30052/processimage" />
