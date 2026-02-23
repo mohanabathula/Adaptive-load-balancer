@@ -332,7 +332,7 @@ class TrueAdaptiveLoadBalancerV5:
             "timestamp", "frame_id", "application_type", "processing_location",
             "cpu", "gpu", "ram", "tx_mbps", "rx_mbps",
             "edge_available", "app_inference_ms", "gpu_compute_ms", "gpu_idle_ms",
-            "resource_check_ms", "decision_ms", "true_e2e_latency_ms", 
+            "resource_check_ms", "decision_ms", "true_e2e_ms", 
             "vehicle_speed_kmh", "target_distance_m", "min_distance_m", 
             "num_detections", "collision_detected", "collision_actor_id"
         ])
