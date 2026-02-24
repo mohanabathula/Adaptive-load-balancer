@@ -10,7 +10,7 @@ Adaptive Load Balancer V5 - TRUE ALB WITH OPTIMIZATIONS + GPU TRACKING
 
 Author: Vidya Vepoori
 Date: 2026-02-06
-Version: 5.0 TRUE ALB + GPU TRACKING
+Version: 1.0 TRUE ALB + GPU TRACKING
 """
 
 import os
